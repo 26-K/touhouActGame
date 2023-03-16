@@ -56,115 +56,115 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\DebuggerTabController.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Tabs\BugReportTabController.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\ConsoleFilterStateService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\Paths.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Profiler\SRPProfilerService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\OptionDefinition.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IDebugCameraService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IConsoleService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Tabs\ProfilerTabController.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\DockConsoleController.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\InternalOptionsRegistry.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\ConsoleFilterStateService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\DebugPanelServiceImpl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\DockConsoleRoot.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\OptionsServiceImpl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\IEnableTab.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\SROptions.Test.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Profiler\ProfilerFPSLabel.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\CategoryGroup.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\KeyboardShortcutListenerService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\PinEntryServiceImpl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\OptionControlFactory.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\IBugReporterHandler.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Profiler\ProfilerCameraListener.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\HandleManager.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\PinnedUIRoot.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\DebugPanelRoot.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\NumberControl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IDebugService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\SafeAreaSizer.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\Strings.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\ProfilerGraphControl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IDockConsoleService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\InternalBugReporterHandler.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IPinEntryService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Version.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\StandardConsoleService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\OptionsServiceImpl.ReflectionOptionContainer.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\BugReportPopoverRoot.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\ConsoleLogControl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\MultiTapButton.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\CircularBuffer.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\ApiUtil.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\SystemInformationService.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\ScrollRectPatch.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\EnumControl.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\Service.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\SRTabController.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\InfoBlock.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\SROptions.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\OptionsControlBase.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IDebugTriggerService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\VersionTextBehaviour.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\BugReportPopoverService.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\SRScriptRecompileHelper.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\LoadingSpinnerBehaviour.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\MobileMenuController.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IConsoleFilterState.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Tabs\ConsoleTabController.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\ConsoleTabQuickViewControl.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\ProfilerGraphAxisLabel.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\DockConsoleServiceImpl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\ErrorNotifier.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\ConfigureCanvasFromSettings.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\KeyboardShortcutListenerService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\ConsoleTabQuickViewControl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Profiler\ProfilerServiceImpl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\EnumControl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Tabs\ConsoleTabController.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\ConsoleEntryView.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\SRDebugService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\TriggerRoot.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\BugReportApiService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\SetLayerFromSettings.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\BoolControl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IProfilerService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Settings.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\BugReportSheetController.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\DataBoundControl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\AutoInitialize.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\DebugTriggerImpl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\IOptionContainer.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\SRTab.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\StringControl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Profiler\ProfilerMemoryBlock.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\ScrollSettingsBehaviour.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\Util.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\Api.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Profiler\ProfilerLateUpdateListener.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\PinnedUIServiceImpl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IBugReportService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\FloatOverElement.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Tabs\InfoTabController.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\ISystemInformationService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\ActionControl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\SRTabButton.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\SRDebug.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Profiler\ProfilerServiceImpl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\ServiceSelectors.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\SRDebuggerInit.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\SROptions.Attributes.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\EditorUtil.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\ReadOnlyControl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IOptionsService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IDebugPanelService.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\PinEntryControl.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\BugReportApi.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Profiler\ProfilerMonoBlock.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\ProfilerEnableControl.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\DebugPanelBackgroundBehaviour.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\BugReportScreenshotUtil.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IPinnedOptionsService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\OptionsServiceImpl.ReflectionOptionContainer.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\InfoBlock.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\EditorUtil.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Tabs\OptionsTabController.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\ConsoleFilterStateService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\IEnableTab.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IDebugService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IPinEntryService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\MobileMenuController.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\FloatOverElement.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\InternalOptionsRegistry.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\TriggerRoot.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\SRTabButton.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\PinEntryControl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\PinnedUIRoot.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\ErrorNotifier.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Profiler\ProfilerMemoryBlock.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IOptionsService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\BugReportScreenshotUtil.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Profiler\SRPProfilerService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\OptionsServiceImpl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IDockConsoleService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\OptionsControlBase.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\BugReportPopoverService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\IOptionContainer.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\SRDebuggerInit.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\ProfilerEnableControl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\DebuggerTabController.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\Paths.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\OptionDefinition.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Tabs\ProfilerTabController.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\DockConsoleRoot.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\PinEntryServiceImpl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\InternalBugReporterHandler.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\SystemInformationService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\BugReportApiService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\BoolControl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IDebugPanelService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Tabs\BugReportTabController.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\StandardConsoleService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\MultiTapButton.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IDebugTriggerService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\AutoInitialize.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\DataBoundControl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\DebugTriggerImpl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Tabs\InfoTabController.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\ReadOnlyControl.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\DebugCameraServiceImpl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Profiler\ProfilerFPSLabel.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\SROptions.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IConsoleFilterState.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IProfilerService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\StringControl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\ServiceSelectors.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Profiler\ProfilerMonoBlock.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IDebugCameraService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\DebugPanelServiceImpl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\SROptions.Test.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\SafeAreaSizer.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\ProfilerGraphControl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\CircularBuffer.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\SRTabController.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\VersionTextBehaviour.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\LoadingSpinnerBehaviour.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\ISystemInformationService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\SRDebug.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\Util.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Profiler\ProfilerLateUpdateListener.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\Api.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\IBugReporterHandler.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Profiler\ProfilerCameraListener.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\NumberControl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\Strings.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\SetLayerFromSettings.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Settings.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\PinnedUIServiceImpl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\SROptions.Attributes.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IPinnedOptionsService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\DockConsoleController.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\CategoryGroup.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Version.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\ApiUtil.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\BugReportSheetController.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IBugReportService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\Data\ActionControl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\BugReportApi.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\IConsoleService.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Internal\OptionControlFactory.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\BugReportPopoverRoot.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Controls\ConsoleLogControl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Services\Implementation\DockConsoleServiceImpl.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\ConfigureCanvasFromSettings.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\SRTab.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\UI\Other\ScrollSettingsBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StompyRobot\SRDebugger\StompyRobot.SRDebugger.asmdef" />
@@ -433,11 +433,17 @@
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
+    <Reference Include="Sirenix.OdinInspector.Editor">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Mdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
@@ -454,32 +460,26 @@
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst.Cecil.Rocks">
-      <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="unityplastic">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.OdinInspector.Editor">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.OdinInspector.Attributes">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
-    </Reference>
     <Reference Include="Sirenix.Serialization.Config">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Utilities">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+      <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Sirenix.Serialization">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Utilities.Editor">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
