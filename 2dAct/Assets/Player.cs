@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] Animator scaleAnim;
     [SerializeField] float jumpPow = 12.0f;
+    [SerializeField] ParticleSystem dust;
     string nowAnimState = RightIdleAnimName;
 
     Rigidbody2D rgd;
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour
                 {
                     Debug.Log("接地");
                     scaleAnim.Play("Ground");
+                    dust.Play();
                 }
                 isGround = true;
                 spd.y = 0.0f;
@@ -71,6 +73,7 @@ public class Player : MonoBehaviour
                 jumpTime = 0.2f;
                 scaleAnim.Play("JumpStart");
                 Debug.Log("ジャンプ");
+                dust.Play();
             }
         }
         else //押されていない時は降下用重力に
