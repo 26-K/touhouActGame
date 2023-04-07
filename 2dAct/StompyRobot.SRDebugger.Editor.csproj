@@ -56,22 +56,22 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SettingsWindow.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\Migrations.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SRDebugEditor.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SROptionsWindow.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SRIntegrityCheckWindow.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SettingsEditor.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SRDebugEditor.Resources.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SRInternalEditorUtil.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\WelcomeWindow.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SRDebugEditor.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\ApiSignupWindow.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SettingsEditor.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SRDebugEditorStrings.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\IntegrityChecking.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SRIntegrityCheckWindow.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SROptionsWindow.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\ApiSignup.cs" />
-    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SRDebugEditor.Compiler.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\ProfilerCameraListenerEditor.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SettingsWindow.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\WelcomeWindow.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SRDebugEditor.Compiler.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\ApiSignupWindow.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\IntegrityChecking.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\ApiSignup.cs" />
     <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SRDebugEditorPaths.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\SRDebugEditorStrings.cs" />
+    <Compile Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\Migrations.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StompyRobot\SRDebugger\Scripts\Editor\StompyRobot.SRDebugger.Editor.asmdef" />
@@ -353,11 +353,17 @@
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
+    <Reference Include="Sirenix.OdinInspector.Editor">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Mdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
@@ -374,32 +380,26 @@
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst.Cecil.Rocks">
-      <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="unityplastic">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.OdinInspector.Editor">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.OdinInspector.Attributes">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
-    </Reference>
     <Reference Include="Sirenix.Serialization.Config">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Utilities">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+      <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Sirenix.Serialization">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Utilities.Editor">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
