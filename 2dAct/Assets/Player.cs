@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -10,10 +11,14 @@ public class Player : MonoBehaviour
     const string LeftIdleAnimName = "LeftIdle";
     const string RightIdleAnimName = "RightIdle";
 
-    [SerializeField] Animator anim;
-    [SerializeField] Animator scaleAnim;
-    [SerializeField] float jumpPow = 12.0f;
-    [SerializeField] ParticleSystem dust;
+    [LabelText("アニメーション")] [SerializeField] Animator anim;
+    [LabelText("拡大縮小アニメーション")] [SerializeField] Animator scaleAnim;
+    [LabelText("移動速度")] [SerializeField] Vector2 spd;
+    [LabelText("移動速度")] [SerializeField] float moveSpd = 8.0f;
+    [LabelText("ジャンプ力")] [SerializeField] float jumpPow = 12.0f;
+    [LabelText("砂煙")] [SerializeField] ParticleSystem dust;
+    [LabelText("先行カメラ位置")] [SerializeField] GameObject leadingCameraObj;
+    [LabelText("先行カメラ範囲")] [SerializeField] Vector2 leadingCameraMargin;
     string nowAnimState = RightIdleAnimName;
 
     Rigidbody2D rgd;
@@ -23,7 +28,6 @@ public class Player : MonoBehaviour
     float grav = 0.0f;
     int jumpCount = 0;
     float jumpTime = 0.0f;
-   [SerializeField] Vector2 spd;
 
     void Start()
     {
@@ -85,11 +89,11 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-            spd.x = -8.0f;
+            spd.x = -moveSpd;
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            spd.x = 8.0f;
+            spd.x = moveSpd;
         }
         else
         {
@@ -114,11 +118,19 @@ public class Player : MonoBehaviour
             grav -= 2.0f;
         }
         rgd.velocity = spd; //New
+        if (rgd.velocity.x != 0)
+        {
+            float rate = (spd.x / moveSpd);
+            Vector3 targetPos = Vector3.zero;
+            targetPos.x = this.transform.position.x + rate * leadingCameraMargin.x;
+            targetPos.y = this.transform.position.y;
+            leadingCameraObj.transform.position = Vector3.Lerp(leadingCameraObj.transform.position, targetPos,0.25f);
+        }
     }
 
     private void AnimeUpdate()
     {
-        anim.SetFloat("MoveSpeed",Mathf.Abs(rgd.velocity.x * 0.5f));
+        anim.SetFloat("MoveSpeed", Mathf.Abs(rgd.velocity.x * 0.5f));
         if (rgd.velocity.x < 0)
         {
             isLeft = true;
@@ -155,10 +167,10 @@ public class Player : MonoBehaviour
     {
         Vector2 startPos = (Vector2)transform.position;
 
-        Vector2 pos = new Vector2(0,-0.55f);
-        Vector2 size = new Vector2(0.3f,0.05f);
+        Vector2 pos = new Vector2(0, -0.55f);
+        Vector2 size = new Vector2(0.3f, 0.05f);
         float distance = 0.1f;
 
-        return Physics2D.BoxCast(startPos + pos , size, 0, Vector2.down, distance);
+        return Physics2D.BoxCast(startPos + pos, size, 0, Vector2.down, distance);
     }
 }

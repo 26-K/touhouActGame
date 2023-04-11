@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\CameraResizer.cs" />
     <Compile Include="Assets\AssetPostprocessUTF8Encode.cs" />
+    <Compile Include="Assets\CameraChaser.cs" />
     <Compile Include="Assets\SingletonMonoBehaviour.cs" />
     <Compile Include="Assets\StompyRobot\SROptions\SROptions.cs" />
     <Compile Include="Assets\StompyRobot\SROptions\SROptions.Test.cs" />
