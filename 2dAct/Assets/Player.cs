@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     string nowAnimState = RightIdleAnimName;
     bool isTouchWall = false;
     float wallJumpTimer = 0.0f;
+    [SerializeField] LineRenderer linerend;
 
     Rigidbody2D rgd;
     public MoveData moveData = new MoveData();
@@ -231,10 +232,11 @@ public class Player : MonoBehaviour
     RaycastHit2D CheckGroundStatus()
     {
         Vector2 startPos = (Vector2)transform.position;
-
         Vector2 pos = new Vector2(0, -0.55f);
         Vector2 size = new Vector2(0.3f, 0.05f);
-        float distance = 0.1f;
+        float distance = 0.2f;
+        DrawRayLine(startPos + pos, Vector2.down * distance);
+
         return Physics2D.BoxCast(startPos + pos, size, 0, Vector2.down, distance);
     }
 
@@ -299,4 +301,20 @@ public class Player : MonoBehaviour
     //        }
     //    }
     #endregion
+    }
+
+    //引数はorigin（始点）と方向（direction）
+    private void DrawRayLine(Vector3 start, Vector3 direction)
+    {
+        //LineRendererコンポーネントの取得
+        linerend = this.GetComponent<LineRenderer>();
+
+        //線の太さを設定
+        linerend.startWidth = 0.04f;
+        linerend.endWidth = 0.04f;
+
+        //始点, 終点を設定し, 描画
+        linerend.SetPosition(0, start);
+        linerend.SetPosition(1, start + direction);
+    }
 }
