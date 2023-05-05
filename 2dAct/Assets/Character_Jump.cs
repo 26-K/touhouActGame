@@ -24,7 +24,16 @@ public class Character_Jump : MonoBehaviour
     public void DoWallJump()
     {
         DoJump();
-        owner.moveData.spd.x = 30; //てきとー
+        if (owner.moveData.isLeft)
+        {
+            owner.moveData.isLeft = !owner.moveData.isLeft;
+            owner.moveData.spd.x = 10; //てきとー
+        }
+        else
+        {
+            owner.moveData.isLeft = !owner.moveData.isLeft;
+            owner.moveData.spd.x = -10; //てきとー
+        }
 
     }
 }

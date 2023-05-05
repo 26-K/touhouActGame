@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     [SerializeField] Character_Jump jump;
 
     [SerializeField] GameObject testWallJumpObj;
+    bool isInputMove = false;
 
     void Start()
     {
@@ -74,15 +75,8 @@ public class Player : MonoBehaviour
         {
             if (a.collider.transform.tag == "Terrain" && moveData.jumpTime <= 0) //床系統に触れている場合
             {
-                if (moveData.isGround == false)
-                {
-                    scaleAnim.Play("Ground");
-                    dust.Play();
-                }
-                moveData.isGround = true;
-                moveData.spd.y = 0.0f;
-                moveData.jumpCount = 1;
-                moveData.grav = -3.0f;
+                DoLandingGround(); //着地チェック
+
             }
             else
             {
@@ -108,7 +102,16 @@ public class Player : MonoBehaviour
 
         if (wallJumpTimer > 0.0f && Input.GetKeyDown(KeyCode.Space)) //スペースが押された時壁ジャンチェック
         {
+            wallJumpTimer = 0.0f;
             jump.DoWallJump(); //test
+            if (moveData.isLeft)
+            {
+                changeAnimeState(LeftAnimName);
+            }
+            else
+            {
+                changeAnimeState(RightAnimName);
+            }
         }
 
         if (Input.GetKey(KeyCode.Space)) //スペースキーが押されている時はジャンプ用の重力に
@@ -129,6 +132,22 @@ public class Player : MonoBehaviour
         AnimeUpdate();
     }
 
+    /// <summary>
+    /// 着地
+    /// </summary>
+    private void DoLandingGround()
+    {
+        if (moveData.isGround == false) //着地
+        {
+            scaleAnim.Play("Ground");
+            dust.Play();
+        }
+        moveData.isGround = true;
+        moveData.spd.y = 0.0f;
+        moveData.jumpCount = 1;
+        moveData.grav = -3.0f;
+    }
+
     private void DecTimer()
     {
         moveData.jumpTime -= Time.deltaTime;
@@ -137,17 +156,56 @@ public class Player : MonoBehaviour
 
     private void TryMove()
     {
+        isInputMove = false;
         if (Input.GetKey(KeyCode.A))
         {
-            moveData.spd.x = -moveSpd;
+            isInputMove = true;
+            if (moveData.isGround)
+            {
+                moveData.spd.x = -moveSpd;
+
+                moveData.isLeft = true;
+                changeAnimeState(LeftAnimName);
+            }
+            else
+            {
+                if (moveData.jumpTime <= 0.0f)
+                {
+                    moveData.isLeft = true;
+                    changeAnimeState(LeftAnimName);
+                    moveData.spd.x -= moveSpd * 0.015f;
+                    moveData.spd.x = Mathf.Max(moveData.spd.x, -moveSpd);
+                }
+            }
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            moveData.spd.x = moveSpd;
+            isInputMove = true;
+            if (moveData.isGround)
+            {
+                moveData.spd.x = moveSpd;
+
+                moveData.isLeft = false;
+                changeAnimeState(RightAnimName);
+            }
+            else
+            {
+                if (moveData.jumpTime <= 0.0f)
+                {
+                    moveData.isLeft = false;
+                    changeAnimeState(RightAnimName);
+                    moveData.spd.x += moveSpd * 0.015f;
+                    moveData.spd.x = Mathf.Min(moveData.spd.x, moveSpd);
+                }
+            }
         }
         else //キーを入力していない間の減速
         {
-            float speedDecRatio = 0.95f;
+            float speedDecRatio = 1.0f;
+            if (moveData.isGround)
+            {
+                speedDecRatio = 0.97f;
+            }
             moveData.spd.x = moveData.spd.x * speedDecRatio;
         }
     }
@@ -174,6 +232,33 @@ public class Player : MonoBehaviour
         {
             moveData.grav -= 2.0f;
         }
+        if (moveData.isGround == true) //地面にいる
+        {
+            if (SlopeCheck(false))
+            {
+                Debug.Log("坂");
+                if (isInputMove) //移動中の場合Plを押し上げて坂道を移動しやすく
+                {
+                    rgd.gravityScale = -5;
+                    moveData.grav = 1.5f;
+                    moveData.spd.y = 0.0f;
+                }
+                else
+                {
+                    moveData.spd.y = 0.0f;
+                    moveData.spd.x = 0.0f;
+                }
+            }
+            else
+            {
+                rgd.gravityScale = 0;
+            }
+            if (SlopeCheck(true) && isInputMove == false) //坂で停止中
+            {
+                moveData.spd.y = 0.0f;
+                moveData.spd.x = 0.0f;
+            }
+        }
         if (isTouchWall) //壁ずさり
         {
             moveData.grav = Mathf.Max(moveData.grav, -4.0f);
@@ -195,13 +280,10 @@ public class Player : MonoBehaviour
         anim.SetFloat("MoveSpeed", Mathf.Abs(rgd.velocity.x * 0.5f));
         if (rgd.velocity.x < 0)
         {
-            moveData.isLeft = true;
-            changeAnimeState(LeftAnimName);
         }
         else if (rgd.velocity.x > 0)
         {
-            moveData.isLeft = false;
-            changeAnimeState(RightAnimName);
+
         }
         else
         {
@@ -218,7 +300,7 @@ public class Player : MonoBehaviour
 
     private void changeAnimeState(string name)
     {
-        if (nowAnimState != name)
+        if (nowAnimState != name || anim.GetCurrentAnimatorStateInfo(0).IsName(name) == false)
         {
             nowAnimState = name;
             anim.SetTrigger(name);
@@ -232,12 +314,11 @@ public class Player : MonoBehaviour
     RaycastHit2D CheckGroundStatus()
     {
         Vector2 startPos = (Vector2)transform.position;
-        Vector2 pos = new Vector2(0, -0.55f);
+        Vector2 pos = new Vector2(0, 0.0f);
         Vector2 size = new Vector2(0.3f, 0.05f);
         float distance = 0.2f;
-        DrawRayLine(startPos + pos, Vector2.down * distance);
-
-        return Physics2D.BoxCast(startPos + pos, size, 0, Vector2.down, distance);
+        LayerMask mask = LayerMask.GetMask("Platforms");
+        return Physics2D.BoxCast(startPos + pos, size, 0, Vector2.down, distance,mask);
     }
 
 
@@ -249,59 +330,76 @@ public class Player : MonoBehaviour
     {
         Vector2 startPos = (Vector2)transform.position;
 
-        Vector2 pos = new Vector2(0, -0.55f);
+        Vector2 pos = new Vector2(0.4f, 0.3f);
         Vector2 size = new Vector2(0.3f, 0.05f);
-        float distance = 0.1f;
+        float distance = 0.2f;
         Vector2 targetDir = Vector2.right;
         if (moveData.isLeft)
         {
             targetDir = Vector2.left;
+            pos.x = pos.x * -1;
         }
-        return Physics2D.BoxCast(startPos + pos, size, 0, targetDir, distance);
+        LayerMask mask = LayerMask.GetMask("Platforms");
+        return Physics2D.BoxCast(startPos + pos, size, 0, targetDir, distance, mask);
     }
 
     #region 坂道チェックの名残だったもの
-    //void Test ()
-    //{
-    //    //rayの設定
-    //    Vector2 startPos = (Vector2)transform.position;
-    //    Vector2 pos = new Vector2(0, -0.55f);
-    //    Vector2 size = new Vector2(0.3f, 0.05f);
-    //    float distance = 0.1f;
+    bool SlopeCheck(bool isReverse)
+    {
+        //rayの設定
+        Vector2 startPos = (Vector2)transform.position;
+        Vector2 pos = new Vector2(0.45f, 0.1f);
+        Vector2 pos_2 = new Vector2(0.45f, 0.4f);
+        Vector2 size = new Vector2(0.3f, 0.05f);
+        Vector2 targetDir = Vector2.right;
+        bool dir = (moveData.isLeft == true);
+        if (isReverse)
+        {
+            dir = !dir;
+        }
+        if (dir)
+        {
+            targetDir *= -1;
+            pos.x *= -1;
+            pos_2.x*= -1;
+        }
+        LayerMask mask = LayerMask.GetMask("Platforms");
+        float distance = 0.1f;
 
-    //    //rayを飛ばして命中した左端と右端を取得する。
-    //    Vector2 leftVec = new Vector2(-0.3f, 0); //仮
-    //    var b = startPos + pos + leftVec;
-    //    var a = Physics2D.BoxCast(b, size, 0, Vector2.down, distance); //開始地点から少し左にずれた地形を取得する…?
-    //    Debug.Log($"LeftHit::{a.normal}");
-    //    var c = startPos + pos + (leftVec * -1.0f);
-    //    a = Physics2D.BoxCast(c, size, 0, Vector2.down, distance); //開始地点から少し→にずれた地形を取得する…?
-    //    Debug.Log($"RightHit::{a.normal}");
+        //rayを飛ばして坂道チェック
+        var a = Physics2D.BoxCast(startPos + pos, size, 0, targetDir, distance, mask);
+        var b = Physics2D.BoxCast(startPos + pos_2, size, 0, targetDir, distance, mask);
+        DrawRayLine(startPos + pos, targetDir * distance);
+        return (a.collider != null && b.collider == null);
+        //if (a.collider != null && b.collider == null)
+        //{
+        //    Debug.Log("坂道");
+        //}
 
-    //}
-
-    //    /// <summary>
-    //    /// 坂道チェック用
-    //    /// 登るのが遅かったり勝手に下るのを修正
-    //    /// </summary>
-    //    /// <param name="startPos">対象位置</param>
-    //    /// <param name="dir">方向</param>
-    //    /// <returns></returns>
-    //    Vector2 SlopeCheck(Vector2 startPos, Vector2 dir)
-    //    {
-    //        Vector2 slopeVec = Vector2.right;
-    //        float Checkdistance = 1.0f;
-    //        RaycastHit2D rayHit2D = Physics2D.Raycast(startPos, Vector2.down, Checkdistance);
-
-    //        if (rayHit2D.collider != null)
-    //        {
-    //            //当たった地形の法線ベクトルを取る
-    //            Vector2 normal = rayHit2D.normal; //命中したrayの法線ベクトル
-
-    //        }
-    //    }
-    #endregion
     }
+
+    /// <summary>
+    /// 坂道チェック用
+    /// 登るのが遅かったり勝手に下るのを修正
+    /// </summary>
+    /// <param name="startPos">対象位置</param>
+    /// <param name="dir">方向</param>
+    /// <returns></returns>
+    //Vector2 SlopeCheck(Vector2 startPos, Vector2 dir)
+    //{
+    //    Vector2 slopeVec = Vector2.right;
+    //    float Checkdistance = 1.0f;
+    //    RaycastHit2D rayHit2D = Physics2D.Raycast(startPos, Vector2.down, Checkdistance);
+
+    //    if (rayHit2D.collider != null)
+    //    {
+    //        //当たった地形の法線ベクトルを取る
+    //        Vector2 normal = rayHit2D.normal; //命中したrayの法線ベクトル
+
+    //    }
+    //}
+    #endregion
+
 
     //引数はorigin（始点）と方向（direction）
     private void DrawRayLine(Vector3 start, Vector3 direction)
