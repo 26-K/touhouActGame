@@ -23,7 +23,7 @@ public class Character_Jump : MonoBehaviour
     /// </summary>
     public void DoWallJump()
     {
-        DoJump();
+        DoWallJump_AddGrav();
         if (owner.moveData.isLeft)
         {
             owner.moveData.isLeft = !owner.moveData.isLeft;
@@ -35,5 +35,22 @@ public class Character_Jump : MonoBehaviour
             owner.moveData.spd.x = -10; //てきとー
         }
 
+    }
+
+    void DoWallJump_AddGrav()
+    {
+        owner.moveData.isGravity = true;
+        owner.moveData.grav = owner.moveData.jumpPow;
+        owner.moveData.spd.y = owner.moveData.grav;
+        owner.moveData.isGround = false;
+        owner.moveData.walljumpCoolTime = 0.3f;
+        if (owner.moveData.isLeft)
+        {
+            owner.ChangeScaleAnim("LeftWallJumpStart");
+        }
+        else if (owner.moveData.isLeft == false)
+        {
+            owner.ChangeScaleAnim("RightWallJumpStart");
+        }
     }
 }

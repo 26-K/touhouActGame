@@ -15,6 +15,7 @@ public class MoveData
     public float grav = 0.0f;
     public int jumpCount = 0;
     public float jumpTime = 0.0f;
+    public float walljumpCoolTime = 0.0f;
 }
 
 
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour
     public void Init()
     {
         jump.Init(this);
+        Application.targetFrameRate = 60;
     }
 
     public void Update()
@@ -148,65 +150,76 @@ public class Player : MonoBehaviour
         moveData.grav = -3.0f;
     }
 
+    /// <summary>
+    /// タイマーの減算
+    /// </summary>
     private void DecTimer()
     {
         moveData.jumpTime -= Time.deltaTime;
         wallJumpTimer -= Time.deltaTime;
+        moveData.walljumpCoolTime -= Time.deltaTime;
     }
 
+    /// <summary>
+    /// 移動しようとする
+    /// </summary>
     private void TryMove()
     {
         isInputMove = false;
-        if (Input.GetKey(KeyCode.A))
+        if (moveData.walljumpCoolTime <= 0.0f)
         {
-            isInputMove = true;
-            if (moveData.isGround)
-            {
-                moveData.spd.x = -moveSpd;
 
-                moveData.isLeft = true;
-                changeAnimeState(LeftAnimName);
-            }
-            else
+            if (Input.GetKey(KeyCode.A))
             {
-                if (moveData.jumpTime <= 0.0f)
+                isInputMove = true;
+                if (moveData.isGround)
                 {
+                    moveData.spd.x = -moveSpd;
+
                     moveData.isLeft = true;
                     changeAnimeState(LeftAnimName);
-                    moveData.spd.x -= moveSpd * 0.015f;
-                    moveData.spd.x = Mathf.Max(moveData.spd.x, -moveSpd);
+                }
+                else
+                {
+                    if (moveData.jumpTime <= 0.0f)
+                    {
+                        moveData.isLeft = true;
+                        changeAnimeState(LeftAnimName);
+                        moveData.spd.x -= moveSpd * 0.7f;
+                        moveData.spd.x = Mathf.Max(moveData.spd.x, -moveSpd);
+                    }
                 }
             }
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            isInputMove = true;
-            if (moveData.isGround)
+            else if (Input.GetKey(KeyCode.D))
             {
-                moveData.spd.x = moveSpd;
-
-                moveData.isLeft = false;
-                changeAnimeState(RightAnimName);
-            }
-            else
-            {
-                if (moveData.jumpTime <= 0.0f)
+                isInputMove = true;
+                if (moveData.isGround)
                 {
+                    moveData.spd.x = moveSpd;
+
                     moveData.isLeft = false;
                     changeAnimeState(RightAnimName);
-                    moveData.spd.x += moveSpd * 0.015f;
-                    moveData.spd.x = Mathf.Min(moveData.spd.x, moveSpd);
+                }
+                else
+                {
+                    if (moveData.jumpTime <= 0.0f)
+                    {
+                        moveData.isLeft = false;
+                        changeAnimeState(RightAnimName);
+                        moveData.spd.x += moveSpd * 0.7f;
+                        moveData.spd.x = Mathf.Min(moveData.spd.x, moveSpd);
+                    }
                 }
             }
-        }
-        else //キーを入力していない間の減速
-        {
-            float speedDecRatio = 1.0f;
-            if (moveData.isGround)
+            else //キーを入力していない間の減速
             {
-                speedDecRatio = 0.97f;
+                float speedDecRatio = 1.0f;
+                if (moveData.isGround)
+                {
+                    speedDecRatio = 0.8f;
+                }
+                moveData.spd.x = moveData.spd.x * speedDecRatio;
             }
-            moveData.spd.x = moveData.spd.x * speedDecRatio;
         }
     }
 
@@ -298,7 +311,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void changeAnimeState(string name)
+    public void ChangeScaleAnim(string str)
+    {
+        scaleAnim.Play(str);
+    }
+
+    void changeAnimeState(string name)
     {
         if (nowAnimState != name || anim.GetCurrentAnimatorStateInfo(0).IsName(name) == false)
         {
