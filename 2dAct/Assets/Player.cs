@@ -336,7 +336,7 @@ public class Player : MonoBehaviour
         Vector2 size = new Vector2(0.3f, 0.05f);
         float distance = 0.2f;
         LayerMask mask = LayerMask.GetMask("Platforms");
-        return Physics2D.BoxCast(startPos + pos, size, 0, Vector2.down, distance,mask);
+        return Physics2D.BoxCast(startPos + pos, size, 0, Vector2.down, distance, mask);
     }
 
 
@@ -379,7 +379,7 @@ public class Player : MonoBehaviour
         {
             targetDir *= -1;
             pos.x *= -1;
-            pos_2.x*= -1;
+            pos_2.x *= -1;
         }
         LayerMask mask = LayerMask.GetMask("Platforms");
         float distance = 0.1f;
@@ -423,8 +423,14 @@ public class Player : MonoBehaviour
     private void DrawRayLine(Vector3 start, Vector3 direction)
     {
         //LineRendererコンポーネントの取得
-        linerend = this.GetComponent<LineRenderer>();
 
+#if UNITY_EDITOR
+#else
+        if (linerend)
+        {
+        linerend.enabled = false;
+        }
+#endif
         //線の太さを設定
         linerend.startWidth = 0.04f;
         linerend.endWidth = 0.04f;
