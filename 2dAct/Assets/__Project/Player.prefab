@@ -4910,8 +4910,8 @@ GameObject:
   - component: {fileID: 7363864910814350841}
   - component: {fileID: 1416409822}
   - component: {fileID: 1416409823}
-  - component: {fileID: 740435405}
   - component: {fileID: 855488565}
+  - component: {fileID: 740435405}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5010,25 +5010,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &740435405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2862277396100038697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a916bbf520974b46979a3f36646d7df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1942515802}
-  scaleAnim: {fileID: 7259851951227409768}
-  spd: {x: 0, y: 0}
-  jumpPow: 15
-  dust: {fileID: 7634820763910847017}
-  leadingCameraObj: {fileID: 5064082754639935677}
-  leadingCameraMargin: {x: 0, y: 0}
 --- !u!70 &855488565
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5045,6 +5026,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0038933754, y: -0.050000012}
   m_Size: {x: 0.33647537, y: 0.81}
   m_Direction: 0
+--- !u!114 &740435405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862277396100038697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a916bbf520974b46979a3f36646d7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1942515802}
+  scaleAnim: {fileID: 7259851951227409768}
+  spd: {x: 0, y: 0}
+  moveSpd: 8
+  jumpPow: 15
+  dust: {fileID: 7634820763910847017}
+  leadingCameraObj: {fileID: 5064082754639935677}
+  leadingCameraMargin: {x: 0, y: 0}
 --- !u!1 &4588068034035157189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5119,7 +5120,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1449171688495701684, guid: 333fc45bde8216c4ca9be42d5b607404, type: 3}
+  m_Sprite: {fileID: 1449171688495701684, guid: 333fc45bde8216c4ca9be42d5b607404,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5223,7 +5225,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
