@@ -17,7 +17,7 @@ MonoBehaviour:
     - name: Default
       type: 0
       hdr: 1
-      darknessColor: {r: 0, g: 0, b: 0, a: 0.19215687}
+      darknessColor: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 0.14901961}
       depth: -100
       resolution: 1
       dayLayers:
@@ -61,9 +61,9 @@ MonoBehaviour:
   dayLightingSettings:
     direction: 322
     ShadowColor: {r: 0, g: 0, b: 0, a: 1}
-    height: 2.84
+    height: 3.27
     bumpMap:
-      height: 0.89
+      height: 0.93
       strength: 1.55
   layers:
     colliderLayers:
