@@ -223,6 +223,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    public float GetMaxMoveSpeed()
+    {
+        return moveSpd;
+    }
     private void DoJump()
     {
         jump.DoJump();

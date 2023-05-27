@@ -27,12 +27,12 @@ public class Character_Jump : MonoBehaviour
         if (owner.moveData.isLeft)
         {
             owner.moveData.isLeft = !owner.moveData.isLeft;
-            owner.moveData.spd.x = 10; //てきとー
+            owner.moveData.spd.x = owner.GetMaxMoveSpeed(); //てきとー
         }
         else
         {
             owner.moveData.isLeft = !owner.moveData.isLeft;
-            owner.moveData.spd.x = -10; //てきとー
+            owner.moveData.spd.x = -owner.GetMaxMoveSpeed(); //てきとー
         }
 
     }
