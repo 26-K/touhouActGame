@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     const string RightAnimName = "Right";
     const string LeftIdleAnimName = "LeftIdle";
     const string RightIdleAnimName = "RightIdle";
+    const string LeftJumpAnimName = "LeftJump";
+    const string RightJumpAnimName = "RightJump";
 
     [LabelText("アニメーション")] [SerializeField] Animator anim;
     [LabelText("拡大縮小アニメーション")] [SerializeField] Animator scaleAnim;
@@ -106,14 +108,14 @@ public class Player : MonoBehaviour
         {
             wallJumpTimer = 0.0f;
             jump.DoWallJump(); //test
-            if (moveData.isLeft)
-            {
-                changeAnimeState(LeftAnimName);
-            }
-            else
-            {
-                changeAnimeState(RightAnimName);
-            }
+            //if (moveData.isLeft)
+            //{
+            //    changeAnimeState(LeftAnimName);
+            //}
+            //else
+            //{
+            //    changeAnimeState(RightAnimName);
+            //}
         }
 
         if (Input.GetKey(KeyCode.Space)) //スペースキーが押されている時はジャンプ用の重力に
@@ -177,14 +179,12 @@ public class Player : MonoBehaviour
                     moveData.spd.x = -moveSpd;
 
                     moveData.isLeft = true;
-                    changeAnimeState(LeftAnimName);
                 }
                 else
                 {
                     if (moveData.jumpTime <= 0.0f)
                     {
                         moveData.isLeft = true;
-                        changeAnimeState(LeftAnimName);
                         moveData.spd.x -= moveSpd * 0.7f;
                         moveData.spd.x = Mathf.Max(moveData.spd.x, -moveSpd);
                     }
@@ -198,14 +198,12 @@ public class Player : MonoBehaviour
                     moveData.spd.x = moveSpd;
 
                     moveData.isLeft = false;
-                    changeAnimeState(RightAnimName);
                 }
                 else
                 {
                     if (moveData.jumpTime <= 0.0f)
                     {
                         moveData.isLeft = false;
-                        changeAnimeState(RightAnimName);
                         moveData.spd.x += moveSpd * 0.7f;
                         moveData.spd.x = Mathf.Min(moveData.spd.x, moveSpd);
                     }
@@ -295,22 +293,37 @@ public class Player : MonoBehaviour
     private void AnimeUpdate()
     {
         anim.SetFloat("MoveSpeed", Mathf.Abs(rgd.velocity.x * 0.5f));
-        if (rgd.velocity.x < 0)
+        if (moveData.isGround)
         {
-        }
-        else if (rgd.velocity.x > 0)
-        {
-
-        }
-        else
-        {
-            if (moveData.isLeft)
+            if (rgd.velocity.x < -0.05f)
             {
-                changeAnimeState(LeftIdleAnimName);
+                changeAnimeState(LeftAnimName);
+            }
+            else if (rgd.velocity.x > 0.05f)
+            {
+                changeAnimeState(RightAnimName);
             }
             else
             {
-                changeAnimeState(RightIdleAnimName);
+                if (moveData.isLeft)
+                {
+                    changeAnimeState(LeftIdleAnimName);
+                }
+                else
+                {
+                    changeAnimeState(RightIdleAnimName);
+                }
+            }
+        }
+        else
+        {
+            if (rgd.velocity.x < 0)
+            {
+                changeAnimeState(LeftJumpAnimName);
+            }
+            else
+            {
+                changeAnimeState(RightJumpAnimName);
             }
         }
     }
